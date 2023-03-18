@@ -1,0 +1,9 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner {
+  padding: 100px 50px;
+}

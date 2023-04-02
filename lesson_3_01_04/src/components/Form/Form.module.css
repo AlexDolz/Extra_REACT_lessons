@@ -1,0 +1,30 @@
+.select__section {
+  display: flex;
+  gap: 30px;
+}
+
+.input__section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 520px;
+}
+
+.select__section div {
+  flex: 1;
+  width: 100%;
+}
+
+select {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+form button {
+  height: 45px;
+}

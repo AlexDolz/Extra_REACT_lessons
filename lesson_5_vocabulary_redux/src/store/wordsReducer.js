@@ -6,6 +6,7 @@ const ADD_NEW_WORD = 'ADD_NEW_WORD';
 const ROTATE_CARD = 'ROTATE_CARD';
 const ROTATE_ALL_CARDS_TO_ENG = 'ROTATE_ALL_CARDS_TO_ENG';
 const ROTATE_ALL_CARDS_TO_RUS = 'ROTATE_ALL_CARDS_TO_RUS';
+const DELETE_CARD_ON_DOUBLE_CLICK = 'DELETE_CARD_ON_DOUBLE_CLICK';
 
 export const wordReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -29,6 +30,8 @@ export const wordReducer = (state = defaultState, action) => {
         ...elem,
         lang: 'rus',
       }));
+    case DELETE_CARD_ON_DOUBLE_CLICK:
+      return state.filter(elem => elem.id !== action.payload);
 
     default:
       return state;
@@ -48,4 +51,8 @@ export const rotateAllCardsToEngAction = () => ({
 });
 export const rotateAllCardsToRusAction = () => ({
   type: ROTATE_ALL_CARDS_TO_RUS,
+});
+export const deleteCardOnDoubleClickAction = payload => ({
+  type: DELETE_CARD_ON_DOUBLE_CLICK,
+  payload,
 });

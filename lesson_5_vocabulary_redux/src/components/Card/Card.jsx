@@ -1,7 +1,10 @@
 import React from 'react';
 import s from './Card.module.css';
 import { useDispatch } from 'react-redux';
-import { rotateCardAction } from '../../store/wordsReducer';
+import {
+  deleteCardOnDoubleClickAction,
+  rotateCardAction,
+} from '../../store/wordsReducer';
 
 const Card = ({ rus, eng, lang, id }) => {
   const cardColor = {
@@ -15,6 +18,7 @@ const Card = ({ rus, eng, lang, id }) => {
       className={s.word_card}
       style={cardColor}
       onClick={() => dispatch(rotateCardAction(id))}
+      onDoubleClick={() => dispatch(deleteCardOnDoubleClickAction(id))}
     >
       {lang === 'rus' ? rus : eng}
     </div>

@@ -29,7 +29,7 @@ const AddForm = () => {
     <form className={s.form} onSubmit={createCard}>
       <Input name='rus' placeholder='Enter word in russian' />
       <Input name='eng' placeholder='Enter word in english' />
-      <Button text='Add word' />
+      <Button text='Add word' className={s.add_button} />
     </form>
   );
 };

@@ -4,7 +4,7 @@ const GET_PRODUCTS = 'GET_PRODUCTS';
 const SORT_BY_DEFAULT = 'SORT_BY_DEFAULT';
 const SORT_BY_PRICE_DESC = 'SORT_BY_PRICE_DESC';
 const SORT_BY_PRICE_ASC = 'SORT_BY_PRICE_ASC';
-
+const SORT_BY_TITLE = 'SORT_BY_TITLE';
 const SORT_BY_RANGE = 'SORT_BY_RANGE';
 
 export const productsReducer = (state = defaultState, action) => {
@@ -30,11 +30,14 @@ export const productsReducer = (state = defaultState, action) => {
     case SORT_BY_RANGE:
       console.log(action.payload);
       const { from, to } = action.payload;
-
       return state.map(product => ({
         ...product,
         rangeVisible: product.price >= from && product.price <= to,
       }));
+
+    case SORT_BY_TITLE:
+      const sortedState = [...state];
+      return sortedState.sort((a, b) => a.title.localeCompare(b.title));
 
     default:
       return state;
@@ -45,4 +48,5 @@ export const getProductsAction = payload => ({ type: GET_PRODUCTS, payload });
 export const sortByDefaultAction = () => ({ type: SORT_BY_DEFAULT });
 export const sortByPriceDescAction = () => ({ type: SORT_BY_PRICE_DESC });
 export const sortByPriceAscAction = () => ({ type: SORT_BY_PRICE_ASC });
+export const sortByTitleAction = () => ({ type: SORT_BY_TITLE });
 export const sortByRangeAction = payload => ({ type: SORT_BY_RANGE, payload });

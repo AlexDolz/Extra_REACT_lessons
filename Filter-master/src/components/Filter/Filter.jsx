@@ -6,6 +6,7 @@ import {
   sortByPriceAscAction,
   sortByPriceDescAction,
   sortByRangeAction,
+  sortByTitleAction,
 } from '../../store/productReducer';
 
 const Filter = () => {
@@ -29,6 +30,10 @@ const Filter = () => {
 
       case 'priceAsc':
         dispatch(sortByPriceAscAction());
+        break;
+
+      case 'title':
+        dispatch(sortByTitleAction());
         break;
 
       default:

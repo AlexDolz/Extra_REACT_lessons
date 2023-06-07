@@ -19,7 +19,7 @@ const ProductList = () => {
   return (
     <div className={s.products_container}>
       {products.map((elem, index) => (
-        <ProductItem key={index} {...elem} />
+        <ProductItem key={index} product={elem} />
       ))}
     </div>
   );
